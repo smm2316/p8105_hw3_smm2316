@@ -21,6 +21,17 @@ options(
 )
 scale_colour_discrete = scale_colour_viridis_d
 scale_fill_discrete = scale_fill_viridis_d
-theme_set(theme_minimal() + theme(legend.position = "bottom"))
+theme_set(theme_bw() + theme(legend.position = "bottom"))
 ```
+
+```{r problem_1_data_load}
+library(p8105.datasets)
+data("instacart")
+```
+The `instacart` data set has `r nrow(instacart)` observations of `r ncol(instacart)` metrics. Each row corresponds to a single item in an order. The columns contain information including the item ordered (`product_id`, `product_name`), the department (`department_id`, `department`) and aisle (`aisle_id`, `aisle`) it is from, the day of the week (`order_dow`) and time (`order_hour_of_day`) it was ordered, the order in which the item was added to the order (`add_to_cart_order`) in addition to other metrics. For example the first item in the table is Bulgarian Yogurt from the yogurt aisle in the dairy and eggs department. The item was ordered at 10 a.m. on a Wednesday, it was the first item the shopper added to their order and it had been 9 days since that shopper's previous order. 
+
+
+
+
+
 
