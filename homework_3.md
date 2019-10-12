@@ -168,3 +168,26 @@ brfss_smart2010 %>%
 ```
 
 <img src="homework_3_files/figure-markdown_github/problem_2_NY_graph-1.png" width="90%" />
+
+``` r
+accel_data = read_csv("./data/accel_data.csv") 
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   .default = col_double(),
+    ##   day = col_character()
+    ## )
+
+    ## See spec(...) for full column specifications.
+
+``` r
+accel_data = pivot_longer(accel_data, activity.1:activity.1440, names_to = "activity_minute", values_to = "activity_count") %>%
+  separate(activity_minute, into = c("activity", "minute")) %>%
+  select(-activity) %>%
+  mutate(
+    minute = as.numeric(minute),
+    day = as.factor(day),
+    day = forcats::fct_relevel(day, c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")),
+    day_type  = if_else(day == "Saturday" | day == "Sunday", "weekend", "weekday"))
+```

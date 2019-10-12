@@ -116,6 +116,18 @@ brfss_smart2010 %>%
         facet_grid(~year) +
         labs(x = "Response", y = "Data Value", title = "Data Value by Response at NY locations in 2006 and 2010")
 ```
+```{r problem_3_data_tidy}
+accel_data = read_csv("./data/accel_data.csv") 
+
+accel_data = pivot_longer(accel_data, activity.1:activity.1440, names_to = "activity_minute", values_to = "activity_count") %>%
+  separate(activity_minute, into = c("activity", "minute")) %>%
+  select(-activity) %>%
+  mutate(
+    minute = as.numeric(minute),
+    day = as.factor(day),
+    day = forcats::fct_relevel(day, c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")),
+    day_type  = if_else(day == "Saturday" | day == "Sunday", "weekend", "weekday"))
+```
 
 
 
