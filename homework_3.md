@@ -141,3 +141,19 @@ brfss_smart2010 %>%
     ## 12 SC                         7
     ## 13 TX                        16
     ## 14 WA                        10
+
+``` r
+brfss_smart2010 %>%
+  filter(response == "Excellent") %>%
+  group_by(locationabbr, year) %>%
+  summarize(data_value_mean = mean(data_value)) %>%
+  ggplot(aes(x = year, y = data_value_mean, group = locationabbr, color = locationabbr)) +
+  geom_line() +
+  labs(
+        x = "Year", 
+        y = "Mean Data Value", 
+        title = "Mean Data Value for Excellent Responses by Year for U.S. States"
+      )
+```
+
+<img src="homework_3_files/figure-markdown_github/problem_2_state_graph-1.png" width="90%" />

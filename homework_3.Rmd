@@ -95,6 +95,19 @@ brfss_smart2010 %>%
   summarize(unique_location = length(unique(locationdesc))) %>%
   filter(unique_location >= 7)
 ```
+```{r problem_2_state_graph}
+brfss_smart2010 %>%
+  filter(response == "Excellent") %>%
+  group_by(locationabbr, year) %>%
+  summarize(data_value_mean = mean(data_value)) %>%
+  ggplot(aes(x = year, y = data_value_mean, group = locationabbr, color = locationabbr)) +
+  geom_line() +
+  labs(
+        x = "Year", 
+        y = "Mean Data Value", 
+        title = "Mean Data Value for Excellent Responses by Year for U.S. States"
+      )
+```
 
 
 
