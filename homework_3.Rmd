@@ -5,6 +5,7 @@ date: 2019-10-07
 output: github_document
 ---
 
+### Problem 1
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(viridis)
@@ -68,6 +69,18 @@ instacart %>%
   summarize (mean_time = mean(order_hour_of_day)) %>%
   pivot_wider (names_from = order_dow, values_from = mean_time) %>%
   knitr::kable()
+```
+### Problem 2
+```{r problem_2_data_clean}
+data("brfss_smart2010")
+
+brfss_smart2010 = 
+  brfss_smart2010 %>%
+  janitor::clean_names() %>%
+  filter(topic == "Overall Health") %>%
+  filter(response == "Excellent" | response == "Very good" | response == "Good" | response == "Fair" | response == "Poor") %>%
+  mutate(response = factor(response), 
+         response = forcats::fct_relevel(response, c("Poor", "Fair", "Good", "Very good", "Excellent"))) 
 ```
 
 

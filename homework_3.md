@@ -3,6 +3,8 @@ Homework 3
 Sarah McLarnan
 2019-10-07
 
+### Problem 1
+
 ``` r
 library(p8105.datasets)
 data("instacart")
@@ -82,3 +84,16 @@ instacart %>%
 |:-----------------|---------:|---------:|---------:|---------:|---------:|---------:|---------:|
 | Coffee Ice Cream |  13.77419|  14.31579|  15.38095|  15.31818|  15.21739|  12.26316|  13.83333|
 | Pink Lady Apples |  13.44118|  11.36000|  11.70213|  14.25000|  11.55172|  12.78431|  11.93750|
+| \#\#\# Problem 2 |          |          |          |          |          |          |          |
+
+``` r
+data("brfss_smart2010")
+
+brfss_smart2010 = 
+  brfss_smart2010 %>%
+  janitor::clean_names() %>%
+  filter(topic == "Overall Health") %>%
+  filter(response == "Excellent" | response == "Very good" | response == "Good" | response == "Fair" | response == "Poor") %>%
+  mutate(response = factor(response), 
+         response = forcats::fct_relevel(response, c("Poor", "Fair", "Good", "Very good", "Excellent"))) 
+```
