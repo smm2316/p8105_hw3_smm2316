@@ -68,3 +68,17 @@ instacart %>%
 | packaged vegetables fruits | Organic Baby Spinach                          |  9784|              1|
 | packaged vegetables fruits | Organic Raspberries                           |  5546|              2|
 | packaged vegetables fruits | Organic Blueberries                           |  4966|              3|
+
+``` r
+instacart %>%
+  filter(product_name == "Coffee Ice Cream" | product_name == "Pink Lady Apples") %>%
+  group_by (order_dow, product_name) %>%
+  summarize (mean_time = mean(order_hour_of_day)) %>%
+  pivot_wider (names_from = order_dow, values_from = mean_time) %>%
+  knitr::kable()
+```
+
+| product\_name    |         0|         1|         2|         3|         4|         5|         6|
+|:-----------------|---------:|---------:|---------:|---------:|---------:|---------:|---------:|
+| Coffee Ice Cream |  13.77419|  14.31579|  15.38095|  15.31818|  15.21739|  12.26316|  13.83333|
+| Pink Lady Apples |  13.44118|  11.36000|  11.70213|  14.25000|  11.55172|  12.78431|  11.93750|

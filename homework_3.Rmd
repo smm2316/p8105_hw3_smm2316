@@ -61,7 +61,14 @@ instacart %>%
   arrange(aisle, product_rank) %>%
   knitr::kable()
 ```
-
+```{r problem_1_product_time}
+instacart %>%
+  filter(product_name == "Coffee Ice Cream" | product_name == "Pink Lady Apples") %>%
+  group_by (order_dow, product_name) %>%
+  summarize (mean_time = mean(order_hour_of_day)) %>%
+  pivot_wider (names_from = order_dow, values_from = mean_time) %>%
+  knitr::kable()
+```
 
 
 
