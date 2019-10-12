@@ -157,3 +157,14 @@ brfss_smart2010 %>%
 ```
 
 <img src="homework_3_files/figure-markdown_github/problem_2_state_graph-1.png" width="90%" />
+
+``` r
+brfss_smart2010 %>%
+  filter(locationabbr == "NY", year == "2006" | year == "2010") %>%
+  ggplot(aes(x = response, y = data_value)) +
+        geom_col() +
+        facet_grid(~year) +
+        labs(x = "Response", y = "Data Value", title = "Data Value by Response at NY locations in 2006 and 2010")
+```
+
+<img src="homework_3_files/figure-markdown_github/problem_2_NY_graph-1.png" width="90%" />

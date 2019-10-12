@@ -108,6 +108,14 @@ brfss_smart2010 %>%
         title = "Mean Data Value for Excellent Responses by Year for U.S. States"
       )
 ```
+```{r problem_2_NY_graph}
+brfss_smart2010 %>%
+  filter(locationabbr == "NY", year == "2006" | year == "2010") %>%
+  ggplot(aes(x = response, y = data_value)) +
+        geom_col() +
+        facet_grid(~year) +
+        labs(x = "Response", y = "Data Value", title = "Data Value by Response at NY locations in 2006 and 2010")
+```
 
 
 
