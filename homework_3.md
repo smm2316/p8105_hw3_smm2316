@@ -32,3 +32,16 @@ instacart %>%
     ## 3 packaged vegetables fruits  78493          3
 
 There are 134 aisles. The top three aisles with the most products ordered from are fresh vegetables, fresh fruits, and packaged vegetables and fruits.
+
+``` r
+instacart %>%
+  group_by(aisle) %>%
+  summarize(n = n()) %>%
+  filter(n > 10000) %>%
+  ggplot(aes(x = aisle, y = n)) + 
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  labs(x = "Aisle", y = "Number of Products Ordered", title = "Number of Products Ordered from Aisle")
+```
+
+<img src="homework_3_files/figure-markdown_github/problem_1_aisle_graph-1.png" width="90%" />
