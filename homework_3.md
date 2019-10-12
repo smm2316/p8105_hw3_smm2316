@@ -97,3 +97,47 @@ brfss_smart2010 =
   mutate(response = factor(response), 
          response = forcats::fct_relevel(response, c("Poor", "Fair", "Good", "Very good", "Excellent"))) 
 ```
+
+``` r
+brfss_smart2010 %>%
+  filter(year == "2002") %>%
+  group_by(locationabbr) %>%
+  summarize(unique_location = length(unique(locationdesc))) %>%
+  filter(unique_location >= 7)
+```
+
+    ## # A tibble: 6 x 2
+    ##   locationabbr unique_location
+    ##   <chr>                  <int>
+    ## 1 CT                         7
+    ## 2 FL                         7
+    ## 3 MA                         8
+    ## 4 NC                         7
+    ## 5 NJ                         8
+    ## 6 PA                        10
+
+``` r
+brfss_smart2010 %>%
+  filter(year == "2010") %>%
+  group_by(locationabbr) %>%
+  summarize(unique_location = length(unique(locationdesc))) %>%
+  filter(unique_location >= 7)
+```
+
+    ## # A tibble: 14 x 2
+    ##    locationabbr unique_location
+    ##    <chr>                  <int>
+    ##  1 CA                        12
+    ##  2 CO                         7
+    ##  3 FL                        41
+    ##  4 MA                         9
+    ##  5 MD                        12
+    ##  6 NC                        12
+    ##  7 NE                        10
+    ##  8 NJ                        19
+    ##  9 NY                         9
+    ## 10 OH                         8
+    ## 11 PA                         7
+    ## 12 SC                         7
+    ## 13 TX                        16
+    ## 14 WA                        10

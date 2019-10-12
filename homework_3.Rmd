@@ -82,7 +82,19 @@ brfss_smart2010 =
   mutate(response = factor(response), 
          response = forcats::fct_relevel(response, c("Poor", "Fair", "Good", "Very good", "Excellent"))) 
 ```
+```{r problem_2_multiple_location}
+brfss_smart2010 %>%
+  filter(year == "2002") %>%
+  group_by(locationabbr) %>%
+  summarize(unique_location = length(unique(locationdesc))) %>%
+  filter(unique_location >= 7)
 
+brfss_smart2010 %>%
+  filter(year == "2010") %>%
+  group_by(locationabbr) %>%
+  summarize(unique_location = length(unique(locationdesc))) %>%
+  filter(unique_location >= 7)
+```
 
 
 
