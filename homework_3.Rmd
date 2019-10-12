@@ -51,6 +51,17 @@ instacart %>%
   theme(axis.text.x = element_text(angle = 90)) +
   labs(x = "Aisle", y = "Number of Products Ordered", title = "Number of Products Ordered from Aisle")
 ```
+```{r problem_1_product_table}
+instacart %>%
+  group_by(aisle, product_name) %>%
+  summarize(n = n()) %>%
+  mutate(product_rank = rank(desc(n))) %>%
+  filter(product_rank <= 3) %>%
+  filter(aisle == "baking ingredients" | aisle == "dog food care" | aisle == "packaged vegetables fruits") %>%
+  arrange(aisle, product_rank) %>%
+  knitr::kable()
+```
+
 
 
 
