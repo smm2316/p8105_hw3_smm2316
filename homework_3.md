@@ -236,3 +236,16 @@ accel_data %>%
 |       33|        549658.00|
 |       34|        367824.00|
 |       35|        445366.00|
+
+``` r
+accel_data %>%
+  ggplot(aes(x = minute, y = activity_count, color = day)) + 
+  geom_line(alpha = .3) +
+  scale_x_continuous(
+    breaks = c(60, 120, 180, 240, 300, 360, 420, 480, 540, 600, 660, 720, 780, 840, 900, 960, 1020, 1080, 1140, 1200, 1260, 1320, 1380, 1440), 
+    labels = c("1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00")) +
+  labs(x = "Hour of Day", y = "Activity Count", title = "24 Hour Activity Time Course by Day of Week") +
+  theme(axis.text.x = element_text(angle = 90))
+```
+
+<img src="homework_3_files/figure-markdown_github/problem_3_graph-1.png" width="90%" />
