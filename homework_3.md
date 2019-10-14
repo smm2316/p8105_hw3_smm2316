@@ -46,7 +46,7 @@ instacart %>%
   labs(x = "Aisle", y = "Number of Products Ordered", title = "Number of Products Ordered from Aisle")
 ```
 
-<img src="homework_3_files/figure-markdown_github/problem_1_aisle_graph-1.png" width="90%" />
+<img src="homework_3_files/figure-markdown_github/problem_1_aisle_graph-1.png" width="90%" /> The graph of number of products ordered from each aisle shows the three aisles with the most products ordered were fresh fruits (~150,000) and fresh vegetables (~150,000) and packged fruits and vegetables (~77,000)
 
 ``` r
 instacart %>%
@@ -59,17 +59,18 @@ instacart %>%
   knitr::kable()
 ```
 
-| aisle                      | product\_name                                 |     n|  product\_rank|
-|:---------------------------|:----------------------------------------------|-----:|--------------:|
-| baking ingredients         | Light Brown Sugar                             |   499|              1|
-| baking ingredients         | Pure Baking Soda                              |   387|              2|
-| baking ingredients         | Cane Sugar                                    |   336|              3|
-| dog food care              | Snack Sticks Chicken & Rice Recipe Dog Treats |    30|              1|
-| dog food care              | Organix Chicken & Brown Rice Recipe           |    28|              2|
-| dog food care              | Small Dog Biscuits                            |    26|              3|
-| packaged vegetables fruits | Organic Baby Spinach                          |  9784|              1|
-| packaged vegetables fruits | Organic Raspberries                           |  5546|              2|
-| packaged vegetables fruits | Organic Blueberries                           |  4966|              3|
+| aisle                         | product\_name                                    |       n|                                                                                                                                                                                                                                                                                                                     product\_rank|
+|:------------------------------|:-------------------------------------------------|-------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| baking ingredients            | Light Brown Sugar                                |     499|                                                                                                                                                                                                                                                                                                                                 1|
+| baking ingredients            | Pure Baking Soda                                 |     387|                                                                                                                                                                                                                                                                                                                                 2|
+| baking ingredients            | Cane Sugar                                       |     336|                                                                                                                                                                                                                                                                                                                                 3|
+| dog food care                 | Snack Sticks Chicken & Rice Recipe Dog Treats    |      30|                                                                                                                                                                                                                                                                                                                                 1|
+| dog food care                 | Organix Chicken & Brown Rice Recipe              |      28|                                                                                                                                                                                                                                                                                                                                 2|
+| dog food care                 | Small Dog Biscuits                               |      26|                                                                                                                                                                                                                                                                                                                                 3|
+| packaged vegetables fruits    | Organic Baby Spinach                             |    9784|                                                                                                                                                                                                                                                                                                                                 1|
+| packaged vegetables fruits    | Organic Raspberries                              |    5546|                                                                                                                                                                                                                                                                                                                                 2|
+| packaged vegetables fruits    | Organic Blueberries                              |    4966|                                                                                                                                                                                                                                                                                                                                 3|
+| The top three products ordere | d in baking ingrendients were light brown sugar, |  pure b|  aking soda, and cane sugar. In dog food care the top three products were snack sticks chicken and rice recipe dog treats, organix chicken and brown rice recipe and small dog biscuits. The top three products ordred in packaged vegetables and fruits were organic baby spinach, organic raspberries, and organic blueberries.|
 
 ``` r
 instacart %>%
@@ -80,11 +81,13 @@ instacart %>%
   knitr::kable()
 ```
 
-| product\_name    |         0|         1|         2|         3|         4|         5|         6|
-|:-----------------|---------:|---------:|---------:|---------:|---------:|---------:|---------:|
-| Coffee Ice Cream |  13.77419|  14.31579|  15.38095|  15.31818|  15.21739|  12.26316|  13.83333|
-| Pink Lady Apples |  13.44118|  11.36000|  11.70213|  14.25000|  11.55172|  12.78431|  11.93750|
-| \#\#\# Problem 2 |          |          |          |          |          |          |          |
+| product\_name       |            0|          1|            2|          3|            4|            5|                                                                                                                                                                          6|
+|:--------------------|------------:|----------:|------------:|----------:|------------:|------------:|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Coffee Ice Cream    |     13.77419|   14.31579|     15.38095|   15.31818|     15.21739|     12.26316|                                                                                                                                                                   13.83333|
+| Pink Lady Apples    |     13.44118|   11.36000|     11.70213|   14.25000|     11.55172|     12.78431|                                                                                                                                                                   11.93750|
+| The table of averag |  e time that|  each pink|  lady apples|  and coffe|  ice cream w|  ere ordered|  show that coffee ice cream is generally ordered later in the day than pink lady apples. Both products were ordered, on average, between late afternoon and mid afternoon.|
+
+### Problem 2
 
 ``` r
 data("brfss_smart2010")
