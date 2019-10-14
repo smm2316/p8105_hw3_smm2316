@@ -207,6 +207,8 @@ accel_data = pivot_longer(accel_data, activity.1:activity.1440, names_to = "acti
     day_type  = if_else(day == "Saturday" | day == "Sunday", "weekend", "weekday"))
 ```
 
+The cleaned problem 3 data set has 50400 observations of 6 variables. The columns include data on week, day number, day of the week, minute of the day, activity count and day of the week type.
+
 ``` r
 accel_data %>%
   group_by(day_id) %>%
@@ -252,6 +254,8 @@ accel_data %>%
 |       34|        367824.00|
 |       35|        445366.00|
 
+The table of total activity per day shows the range of activity counts from approximately 8,000 to 68,000. Two days have values of 1,440 indicating one activity count per minute which is presumably some sort of product error or the individual did not wear the accelerometer that day.
+
 ``` r
 accel_data %>%
   ggplot(aes(x = minute, y = activity_count, color = day)) + 
@@ -264,3 +268,5 @@ accel_data %>%
 ```
 
 <img src="homework_3_files/figure-markdown_github/problem_3_graph-1.png" width="90%" />
+
+The 24 hour activity time course by day of week shows pattern of more activity during the day and less at night. There are typically spikes in activity around 7:00 - 8:00 a.m., 11-noon and 7:00-10:00 p.m..
