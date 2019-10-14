@@ -40,6 +40,7 @@ instacart %>%
   mutate(aisle_rank = rank(desc(n))) %>%
   filter(aisle_rank <= 3)
 ```
+
 There are 134 aisles. The top three aisles with the most products ordered from are fresh vegetables, fresh fruits, and packaged vegetables and fruits. 
 
 ```{r problem_1_aisle_graph}
@@ -52,6 +53,7 @@ instacart %>%
   theme(axis.text.x = element_text(angle = 90)) +
   labs(x = "Aisle", y = "Number of Products Ordered", title = "Number of Products Ordered from Aisle")
 ```
+
 The graph of number of products ordered from each aisle shows the three aisles with the most products ordered were fresh fruits (~150,000) and fresh vegetables (~150,000) and packged fruits and vegetables (~77,000)
 
 ```{r problem_1_product_table}
@@ -64,6 +66,7 @@ instacart %>%
   arrange(aisle, product_rank) %>%
   knitr::kable()
 ```
+
 The top three products ordered in baking ingrendients were light brown sugar, pure baking soda, and cane sugar. In dog food care the top three products were snack sticks chicken and rice recipe dog treats, organix chicken and brown rice recipe and small dog biscuits. The top three products ordred in packaged vegetables and fruits were organic baby spinach, organic raspberries, and organic blueberries. 
 
 ```{r problem_1_product_time}
@@ -74,6 +77,7 @@ instacart %>%
   pivot_wider (names_from = order_dow, values_from = mean_time) %>%
   knitr::kable()
 ```
+
 The table of average time that each pink lady apples and coffe ice cream were ordered show that coffee ice cream is generally ordered later in the day than pink lady apples. Both products were ordered, on average, between late afternoon and mid afternoon.
 
 ### Problem 2
@@ -101,6 +105,9 @@ brfss_smart2010 %>%
   summarize(unique_location = length(unique(locationdesc))) %>%
   filter(unique_location >= 7)
 ```
+
+There were six states with more than 7 unique locations in 2002 and 14 states with more than 7 unique locations in 2010. 
+
 ```{r problem_2_state_graph}
 brfss_smart2010 %>%
   filter(response == "Excellent") %>%
@@ -114,6 +121,9 @@ brfss_smart2010 %>%
         title = "Mean Data Value for Excellent Responses by Year for U.S. States"
       )
 ```
+
+The plot generated indicates the majority of states have relatively similar mean data values each year with a few outliers on the low end. 
+
 ```{r problem_2_NY_graph}
 brfss_smart2010 %>%
   filter(locationabbr == "NY", year == "2006" | year == "2010") %>%
@@ -122,6 +132,10 @@ brfss_smart2010 %>%
         facet_grid(~year) +
         labs(x = "Response", y = "Data Value", title = "Data Value by Response at NY locations in 2006 and 2010")
 ```
+
+The paneled graph of data value by response in 2006 and 2010 show that the most responses were "very good" for each year and "poor" had the fewest responses. 2010 had more responses in each category than 2006. 
+
+###Problem 3
 ```{r problem_3_data_tidy}
 accel_data = read_csv("./data/accel_data.csv") 
 
